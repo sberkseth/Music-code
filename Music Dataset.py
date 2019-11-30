@@ -1,7 +1,13 @@
+"""
+    
+=====================================
+Upload Data Files for Sonification
+=====================================
+    
+Import files to create output used for data sonification. Output is a series of music note identifiers, which then need to be uploaded to Lilypad program for sonification.     
+"""
 
-# coding: utf-8
-
-# In[1]:
+# import packages
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -9,56 +15,18 @@ import scipy.optimize as opt
 from scipy.optimize import curve_fit
 get_ipython().magic(u'matplotlib inline')
 
-#testing_testing 
-#why aren't you working?!
 #### Import Data File
-
-# In[2]:
 
 from pandas import read_csv
 data_load = read_csv('barry_recon2.csv')
 
-
-# In[3]:
-
-#print data_load
-
-
-# In[4]:
-
-#dt=np.dtype([('time',int,),
-#             ('lat','a5'),
-#             ('lon','a5'),
-#             ('stat',int),
-#             ('geo',int),
-#             ('pres',int),
-#             ('temp','a5'),
-#             ('dew','a5'),
-#             ('wind',int),
-#             ('peak',int),
-#             ('sfc',int),
-#             ('rain',int),
-#             ('flag',int)])
-
-
-# In[5]:
-
 data=np.loadtxt('barry_recon2.csv',delimiter=',',skiprows=1)
-#result['price']
 
-
-# In[6]:
-
+#listed below are examples of variations that can be used depending on data file
 #data = np.loadtxt('barry_data1.csv',delimiter=',',skiprows=0) 
 #data = np.loadtxt('barry_recon.dat') 
 
-
-# In[7]:
-
 print data[:,9]
-
-
-# In[8]:
 
 var1 = data[:,5]
 coffee = data[:,9]
@@ -66,26 +34,15 @@ coffee = data[:,9]
 
 data_len = len(var1)
 
-
-# In[9]:
-
 var2 = coffee/2.
 print var2
 #print coffee
 
-
-# In[10]:
-
 print var2.min()
-
-
-# In[11]:
 
 #plt.plot(var1, 'r--', var2, 'g--', var3, 'b--')
 plt.plot(var1, 'r--', var2, 'g--')
 
-
-# In[267]:
 
 import matplotlib.animation as animation
 #plt.rcParams['animation.ffmpeg_path'] = '/Users/samberkseth/Downloads/ffmpeg'
