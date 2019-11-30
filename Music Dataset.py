@@ -9,7 +9,8 @@ import scipy.optimize as opt
 from scipy.optimize import curve_fit
 get_ipython().magic(u'matplotlib inline')
 
-
+#testing_testing 
+#why aren't you working?!
 #### Import Data File
 
 # In[2]:
